@@ -46,8 +46,8 @@
 **2. 複製專案**
 
 ```bash
-   git clone https://github.com/simonchen0125/AutoDeployLR-main_7113040017.git
-   cd AutoDeployLR-main_7113040017
+git clone https://github.com/simonchen0125/AutoDeployLR-main_7113040017.git
+cd AutoDeployLR-main_7113040017
 ```
 
 **3.建立虛擬環境**
