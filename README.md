@@ -1,58 +1,75 @@
-# Interactive Linear Regression Visualizer
+# 互動式線性迴歸分析儀 (CRISP-DM)
 
-This project is a Streamlit web application that allows users to interactively visualize linear regression. Users can adjust parameters such as the number of data points, the coefficient of the linear relationship, and the amount of noise, and see how these changes affect the regression line and the identification of outliers.
+這是一個基於 Streamlit 開發的互動式網頁應用，旨在透過視覺化的方式，幫助使用者深入理解簡單線性迴歸模型。
 
-## Demo Site
+整個專案的開發流程與應用程式的介面結構，皆遵循 **CRISP-DM (跨產業資料探勘標準流程)** 框架，從商業理解到最終部署，提供一個完整的範例。
 
-The application is deployed on Streamlit Cloud and can be accessed here: [https://aiotda.streamlit.app/](https://aiotda.streamlit.app/)
+## 🚀 線上展示 (Demo Site)
 
-## Project Summary
+您可以透過以下連結，直接在線上操作此應用程式：
 
-This project was developed to provide an interactive tool for understanding linear regression. The development process involved setting up a Streamlit application, creating a virtual environment, installing dependencies, and implementing the core features of the application. The project was then deployed to Streamlit Cloud.
+[https://hw1-7113040017.streamlit.app/](https://hw1-7113040017.streamlit.app/)
 
-## Development Log
+## ✨ 主要功能
 
-This section provides a summary of the development steps taken, as recorded in `0_devLog.md`.
+-   **互動式參數調整**: 使用者可以透過側邊欄的滑桿，即時調整以下參數來生成資料：
+    -   資料點數量 (n)
+    -   真實斜率 (a)
+    -   雜訊變異數 (Noise Variance)
+-   **即時視覺化**: 所有參數的變更都會立即反映在圖表上，包含：
+    -   資料散佈圖
+    -   模型擬合的迴歸線 (紅色)
+    -   真實資料的關係線 (綠色虛線)
+-   **模型評估**: 即時計算並顯示模型的關鍵評估指標：
+    -   **量化指標**: 均方誤差 (MSE) 和 R 平方 (R-squared)。
+    -   **視覺化指標**: 透過圖表直觀感受擬合效果。
+-   **離群值分析**: 自動標示出對模型影響最大的前 5 個離群值。
+-   **資料下載**: 提供按鈕讓使用者可以下載當前參數下生成的 CSV 資料檔。
 
-*   **1.0-2.0:** Initial setup, including the creation of the development log (`0_devLog.md`) and the to-do list (`Todo.md`).
-*   **3.0-4.0:** Modification and verification of the project plan.
-*   **5.0:** Execution of the project plan, starting with the creation of the Streamlit application (`app.py`).
-*   **6.0-11.0:** Troubleshooting and resolving issues related to running the Streamlit application, including the creation of `requirements.txt`, setting up a virtual environment, and installing dependencies.
-*   **12.0-13.0:** Successfully running the Streamlit application.
+## 🛠️ 技術棧 (Technology Stack)
 
-## To-Do List for Linear Regression Implementation
+-   **Python 3.8+**
+-   **Streamlit**: 用於快速建構互動式網頁應用。
+-   **Scikit-learn**: 用於建立與訓練線性迴歸模型。
+-   **Pandas**: 資料處理與管理。
+-   **Numpy**: 數值運算。
+-   **Altair**: 互動式資料視覺化圖表。
 
-This section outlines the general steps for implementing a linear regression model, as detailed in `Todo.md`.
+## 💻 本地安裝與執行
 
-### 1. Data Preparation
-- [ ] Load the dataset (e.g., from CSV, NumPy array).
-- [ ] Handle missing values (if any).
-- [ ] Split data into training and testing sets.
-- [ ] Feature scaling (if necessary, e.g., StandardScaler).
+請依照以下步驟來設定並在您的電腦上執行本專案。
 
-### 2. Model Implementation
-- [ ] Implement the Linear Regression model from scratch (if required).
-  - [ ] Initialize weights and bias.
-  - [ ] Define the hypothesis function (h(x) = wx + b).
-  - [ ] Define the cost function (Mean Squared Error).
-  - [ ] Implement Gradient Descent for optimization.
-    - [ ] Calculate gradients.
-    - [ ] Update weights and bias.
+**1. 前置要求**
 
-### 3. Training
-- [ ] Train the model using the training data.
-- [ ] Monitor convergence (e.g., plot cost function over iterations).
+-   確認您的電腦已安裝 Python 3.8 或更高版本。
 
-### 4. Evaluation
-- [ ] Make predictions on the test set.
-- [ ] Calculate evaluation metrics:
-  - [ ] Mean Squared Error (MSE)
-  - [ ] R-squared (R2 Score)
-- [ ] Visualize predictions vs. actual values.
+**2. 複製專案**
 
-### 5. Prediction
-- [ ] Create a function to make predictions on new, unseen data.
+```bash
+   git clone https://github.com/simonchen0125/AutoDeployLR-main_7113040017.git
+   cd AutoDeployLR-main_7113040017
+```
 
-### 6. Documentation and Reporting
-- [ ] Document the code.
-- [ ] Write a report summarizing the implementation, results, and conclusions.
+**3.建立虛擬環境**
+
+```bash
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
+
+# macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**4.安裝相依套件**
+
+```bash
+pip install -r requirements.txt
+```
+
+**5.執行 Streamlit 應用**
+
+```bash
+streamlit run app.py
+```

@@ -1,105 +1,41 @@
-# 1.0 Start logging
+# 1.0 專案啟動與規劃 (Project Initiation & Planning)
 
-# 1.1 Create devLog.md
+1.1 **建立開發日誌**: 建立 `0_devLog.md` 開始記錄專案開發歷程。
+1.2 **需求分析 (CRISP-DM: 商業理解)**: 根據 HW1 要求，確立專案目標為建立一個互動式線性迴歸分析工具。
+1.3 **功能規劃**: - 必須遵循 CRISP-DM 框架。 - 需允許使用者調整斜率 (a)、噪聲 (noise) 和資料點數量。 - 最終成果需部署為 Streamlit 或 Flask 網頁應用。
+1.4 **建立任務清單**: 建立 `Todo.md`，將主要開發任務條列化。
 
-# 2.0 Write implementation tasks
+# 2.0 開發環境設定 (Environment Setup)
 
-# 2.1 Create Todo.md with implementation tasks for linear regression.
+2.1 **建立專案結構**: 建立初始資料夾結構與 `.gitignore` 檔案以排除不必要的檔案。
+2.2 **定義相依套件**: 建立 `requirements.txt` 並列出所需套件：`streamlit`, `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `altair`。
+2.3 **建立虛擬環境**: 執行 `python -m venv venv` 建立獨立的 Python 環境。
+2.4 **安裝套件**: 啟動虛擬環境，並執行 `pip install -r requirements.txt` 安裝所有相依套件。
+2.5 **驗證安裝**: 確認套件均已成功安裝。
 
-# 3.0 Modify HW1-1 in project_plan.md
+# 3.0 Streamlit 應用程式核心開發 (Core App Development)
 
-# 3.1 Read project_plan.md to identify HW1-1.
+3.1 **建立主檔案**: 建立 `app.py` 作為 Streamlit 應用的進入點。
+3.2 **Phase 1: 商業理解**: 在 app 中加入專案標題與目標說明。
+3.3 **Phase 2 & 3: 資料理解與準備**: - 使用 `st.sidebar` 建立參數控制面板。 - 加入滑桿 (sliders) 讓使用者能調整資料點數量、斜率 `a` 與噪聲變異數。 - 撰寫資料生成函式，根據公式 `y = ax + b + noise` 產生 DataFrame。
+3.4 **Phase 4: 模型建立**: - 引入 `sklearn.linear_model.LinearRegression`。 - 根據生成的資料訓練模型，並取得預測斜率與截距。 - 使用 `st.metric` 顯示模型學到的參數，並與真實值進行比較。
+3.5 **Phase 5: 模型評估**: - 計算並顯示 MSE (均方誤差) 和 R-squared (R 平方) 指標。 - 使用 Altair 套件繪製互動式圖表，包含散佈圖、迴歸線與真實關係線。 - 增加離群值分析功能，找出並顯示殘差最大的幾個點。
+3.6 **Phase 6: 部署**: - 在 app 結尾加入說明，闡述此 Streamlit 應用本身即為部署成果。
 
-# 3.2 Found project_plan.md is empty, cannot modify HW1-1.
+# 4.0 測試與驗證 (Testing & Validation)
 
-# 3.3 Add HW1-1 section to project_plan.md with specified features.
+4.1 **首次執行**: 在終端機中執行 `streamlit run app.py`。
+4.2 **功能驗證**: - 測試所有側邊欄滑桿是否能正常運作並即時更新圖表。 - 確認模型評估指標是否會隨參數變動而刷新。 - 檢查資料下載按鈕功能是否正常。
+4.3 **使用者體驗優化**: 加入「恢復預設值」按鈕，並美化介面排版。
 
-# 4.0 Verify changes in project_plan.md
+# 5.0 文件撰寫 (Documentation)
 
-# 4.1 Read project_plan.md to confirm content.
+5.1 **撰寫 README**: 建立 `README.md`，詳細說明專案功能、技術棧、安裝與執行步驟。
+5.2 **建立 README**: 建立 `README.en.md` 以利協作。
+5.3 **完成部署說明**: 建立 `ReplDeployment.md` (若有需要，用於說明更詳細的部署步驟)。
+5.4 **專案完成**: 所有功能開發與文件撰寫完畢，建立 `AllDone.md` 標示專案完成。
 
-# 5.0 Read and execute plan from 2_*.plan.md
+# 6.0 專案完成
 
-# 5.1 Find the file matching 2_*.plan.md.
-
-# 5.1.1 No file found matching 2_*.plan.md.
-
-# 5.2 Read 2_modified_project_plan.md.
-
-# 5.3 Start executing tasks: Set up basic Streamlit application.
-
-# 5.4 Created app.py with Streamlit application.
-
-# 6.0 Run the project
-
-# 6.1 Execute `streamlit run app.py`.
-
-# 6.1.1 Failed to run Streamlit: command not found.
-
-# 7.0 Install necessary packages from requirements.txt
-
-# 7.1 Check for existence of requirements.txt.
-
-# 7.1.1 requirements.txt not found.
-
-# 7.2 Suggest creating requirements.txt.
-
-# 7.3 Create requirements.txt.
-
-# 7.4 Created requirements.txt.
-
-# 8.0 Correct user's pip install command
-
-# 8.1 Inform user about correct `pip install -r requirements.txt` command.
-
-# 8.2 Execute `pip install -r requirements.txt`.
-
-# 8.2.1 Failed to execute `pip install`: `pip` command not found.
-
-# 9.0 Set up virtual environment and install packages
-
-# 9.1 Instruct user on creating a virtual environment.
-
-# 9.2 Execute commands to set up virtual environment and install packages.
-
-# 9.2.1 Created virtual environment.
-
-# 9.2.2 Activate virtual environment and install packages.
-
-# 10.0 Attempt to run Streamlit project again
-
-# 10.1 Inform user about uninstalled dependencies and cancelled installation.
-
-# 11.0 Install dependencies from requirements.txt
-
-# 11.1 Execute `pip install -r requirements.txt`.
-
-# 11.1.1 Successfully installed dependencies.
-
-# 11.2 Run Streamlit application.
-
-# 11.2.1 Failed to run Streamlit: command not found, even after installation.
-
-# 11.3 Run Streamlit application using virtual environment's interpreter.
-
-# 11.3.1 Failed to run Streamlit: `venv/bin/streamlit` not found.
-
-# 11.4 Find actual path to `streamlit` executable within `venv`.
-
-# 11.4.1 Found `streamlit` executable is not directly in `venv/bin`.
-
-# 11.5 Run Streamlit application using `venv/bin/python -m streamlit run app.py`.
-
-# 11.5.1 Successfully launched Streamlit application.
-
-# 12.0 Kill process for Streamlit
-
-# 12.1 Kill the Streamlit process using its PGID.
-
-# 12.1.1 Streamlit process not found, likely already stopped.
-
-# 13.0 Run Streamlit application again
-
-# 13.1 Execute `venv/bin/python -m streamlit run app.py &`.
-
-# 13.1.1 Successfully launched Streamlit application again.
+6.1 最終程式碼審查與確認。
+6.2 專案交付。
